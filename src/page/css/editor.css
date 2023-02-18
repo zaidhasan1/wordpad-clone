@@ -1,0 +1,59 @@
+body {
+    background-color: #f4f4f4 !important
+}
+
+
+.main-editor-page {
+    height: 841px;
+    width: 595px;
+    background-color: white;
+    border: 2px solid black;
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 4px
+}
+
+
+.main-editor-page:focus {
+    border: 1px ridge #f3f3f3;
+}
+
+.floating-box {
+    height: 100px;
+    width: 200px;
+    position: absolute;
+    background-color: green;
+    margin-left: 100px;
+}
+
+.sidewall {
+    height: 100%;
+    width: 250px;
+    background-color: white;
+    position: fixed;
+}
+
+.fontBox {
+    width: 100%;
+}
+
+.colorLi {
+    list-style-type: none;
+}
+
+.colorLi>li {
+    display: inline;
+    padding: 10px
+}
+
+.cursor-point {
+    cursor: pointer;
+}
+
+.dis-inline {
+    display: inline-block;
+}
+
+.line-break {
+    white-space: pre;
+}
