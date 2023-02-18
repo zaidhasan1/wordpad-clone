@@ -117,11 +117,7 @@ const Editor = ({ id }) => {
         if (parent.children.length === 0) {
           parent.appendChild(node);
         } else {
-          if (
-            parent.children &&
-            parent.children.length > 0 &&
-            parent.children[i - 1]
-          ) {
+          if (parent.children && parent.children.length > 0 && parent.children[i - 1]) {
             parent.children[i - 1].insertAdjacentElement("afterEnd", node);
           }
         }
@@ -139,19 +135,13 @@ const Editor = ({ id }) => {
       getId().innerHTML = "";
     }
 
-    let paste = (
-      e.clipboardData ||
-      window.clipboardData ||
-      e.originalEvent.clipboardData
-    ).getData("text");
+    let paste = (e.clipboardData || window.clipboardData || e.originalEvent.clipboardData).getData("text");
 
     let pos = cursorPosition();
     let str = editorValue;
 
     if (str.length != 0) {
-      let output = [str.slice(0, pos), " " + paste + " ", str.slice(pos)].join(
-        ""
-      );
+      let output = [str.slice(0, pos), " " + paste + " ", str.slice(pos)].join("");
       str = output;
       setEditorValue(str);
     } else {
@@ -197,18 +187,11 @@ const Editor = ({ id }) => {
       return false;
     }
 
-    if (
-      (e.keyCode >= 112 && e.keyCode <= 123) ||
-      e.key === "Meta" ||
-      e.key === "ContextMenu"
-    ) {
+    if ((e.keyCode >= 112 && e.keyCode <= 123) || e.key === "Meta" || e.key === "ContextMenu") {
       e.preventDefault();
       return false;
     }
-    if (
-      (e.keyCode >= 65 && e.keyCode <= 95) ||
-      (e.keyCode >= 108 && e.keyCode <= 126)
-    ) {
+    if ((e.keyCode >= 65 && e.keyCode <= 95) || (e.keyCode >= 108 && e.keyCode <= 126)) {
       createNode(e.key);
     } else if (e.key == "Backspace") {
       if (selection.toString()) {
@@ -236,7 +219,7 @@ const Editor = ({ id }) => {
     }
 
     if (e.key == "Enter") {
-      createNode(e.key);
+      e.preventDefault();
     }
 
     arr.forEach((char) => {
